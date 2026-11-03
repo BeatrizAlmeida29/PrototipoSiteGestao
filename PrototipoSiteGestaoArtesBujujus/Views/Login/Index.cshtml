@@ -1,0 +1,57 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Kay+Pho+Du&family=Karantina:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/login.css" />
+  </head>
+<body>
+    <header class="topo">
+        <img src="~/img/logo.png" alt="Logo" class="logo" />
+        <a href="#" class="topo-link">Orçamentos</a>
+        <div class="busca-caixa">
+            <input type="search" class="busca" />
+            <button type="button" class="busca-botao" aria-label="Pesquisar">
+                <svg viewBox="3 3 19 19" width="33" height="33" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                    <circle cx="11" cy="11" r="7" />
+                    <line x1="16.5" y1="16.5" x2="21" y2="21" />
+                </svg>
+            </button>
+        </div>
+        <a href="#" class="topo-link">Login</a>
+        <img src="~/img/carrinho.svg" alt="Carrinho" class="carrinho" />
+    </header>
+
+    <main>
+        <h1 class="titulo">Entrar</h1>
+        @if (ViewBag.Erro != null)
+        {
+            <p class="erro">@ViewBag.Erro</p>
+        }
+
+        <div class="cartao">
+            <form method="post">
+                <label for="email">Login:</label>
+                <input type="email" id="email" name="Email" class="campo" placeholder="ex.: seuemail@email.com" />
+
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="Senha" class="campo" placeholder="ex.: suasenha" />
+
+                <a href="#" class="link-esqueci">Esqueci a senha</a>
+
+                <button type="submit" class="botao">Iniciar sessão</button>
+
+                <p class="criar-conta">Não possui uma conta ainda? <a href="#">Criar uma conta</a></p>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

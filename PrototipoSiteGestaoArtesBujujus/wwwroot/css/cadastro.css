@@ -1,0 +1,59 @@
+﻿.pagina-cadastro {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.cad-titulo {
+    font-size: 5rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem;
+}
+
+.cad-cartao {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 62rem;
+    padding: 2.5rem 3rem;
+    background-color: #FFFFFF;
+}
+
+.cad-linha {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+    .cad-linha label {
+        font-size: 2.25rem;
+    }
+
+.cad-campo {
+    box-sizing: border-box;
+    flex: 1;
+    height: 3.25rem;
+    padding: 0 1rem;
+    font-family: 'Kay Pho Du', sans-serif;
+    font-size: 2rem;
+    background: #F4F4F4;
+    border: 1px solid #525A66;
+    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+}
+
+.cad-botao {
+    display: block;
+    margin: 2rem auto 0;
+    width: 20rem;
+    height: 4rem;
+    background-color: #1B98E0;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 1.875rem;
+    font-family: inherit;
+    font-size: 3rem;
+    cursor: pointer;
+}

@@ -121,3 +121,8 @@ button {
     color: #000000;
     text-decoration: none;
 }
+
+.logo-link {
+    display: flex;
+    align-items: center;
+}

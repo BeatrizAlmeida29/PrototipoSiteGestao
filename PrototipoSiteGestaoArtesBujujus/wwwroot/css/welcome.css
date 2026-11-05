@@ -1,0 +1,199 @@
+﻿/* Nessa página (que rola), a escala depende só da largura da janela */
+html:has(.pagina-welcome) {
+    font-size: clamp(8px, 100vw / 90, 20px);
+}
+
+.pagina-welcome {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- Topo da página ---------- */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 0 0;
+    text-align: center;
+}
+
+.hero-titulo {
+    max-width: 55rem;
+    margin: 0 0 1rem;
+    font-size: 6rem;
+    line-height: 1.1;
+    color: #4B5563;
+}
+
+.hero-subtitulo {
+    max-width: 32rem;
+    margin: 0 0 1.75rem;
+    font-family: 'Kay Pho Du', serif;
+    font-size: 2.75rem;
+    color: #4B5563;
+}
+
+.hero-botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18.75rem;
+    height: 4.375rem;
+    border-radius: 2.25rem;
+    background-color: #1B98E0;
+    color: #FFFFFF;
+    font-size: 2.75rem;
+    text-decoration: none;
+}
+
+/* ---------- Carrossel ---------- */
+
+.carrossel {
+    position: relative;
+    width: 100%;
+    max-width: 66.75rem;
+    height: 31rem;
+    margin: 2.5rem 0 1.5rem;
+    border-radius: 3.75rem;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+    .slide.ativo {
+        opacity: 1;
+    }
+
+.carrossel-seta {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6.5rem;
+    height: 6.5rem;
+    padding: 0;
+    border: 2px solid #1B98E0;
+    border-radius: 50%;
+    background: none;
+    color: #1B98E0;
+    cursor: pointer;
+}
+
+    .carrossel-seta svg {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+.carrossel-seta-esq {
+    left: 1.5rem;
+}
+
+.carrossel-seta-dir {
+    right: 1.5rem;
+}
+
+.carrossel-pontos {
+    display: flex;
+    gap: 1.25rem;
+    padding-bottom: 3rem;
+}
+
+.ponto {
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: #B4BACB;
+    cursor: pointer;
+}
+
+    .ponto.ativo {
+        background-color: #1B98E0;
+    }
+
+/* ---------- Como funciona ---------- */
+
+.como-funciona {
+    padding: 2rem 0 2.5rem;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+    .como-funciona h2 {
+        margin: 0 0 1.5rem;
+        font-size: 3rem;
+    }
+
+.passos {
+    display: flex;
+    justify-content: center;
+    gap: 6rem;
+}
+
+.passo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 14rem;
+}
+
+.passo-numero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: #B4BACB;
+    color: #FFFFFF;
+    font-size: 2.5rem;
+}
+
+.passo-texto {
+    font-size: 1.75rem;
+}
+
+/* ---------- Rodapé ---------- */
+
+.rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 12rem;
+    padding: 0 3.5rem;
+    background-color: #0B3C5D;
+    color: #FFFFFF;
+}
+
+.rodape-endereco {
+    margin: 0;
+    font-size: 2.25rem;
+}
+
+    .rodape-endereco strong {
+        font-size: 3rem;
+    }
+
+.rodape-link {
+    font-size: 3rem;
+    color: #FFFFFF;
+    text-decoration: none;
+}

@@ -1,9 +1,15 @@
 using PrototipoSiteGestaoArtesBujujus.Repositories;
+using Microsoft.EntityFrameworkCore;
+using PrototipoSiteGestaoArtesBujujus.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+var connectionString = builder.Configuration.GetConnectionString("Padrao");
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseMySql(connectionString, new MariaDbServerVersion(new Version(13, 0, 2))));
 builder.Services.AddSingleton<IUsuarioRepository, UsuarioRepositoryFake>();
 
 var app = builder.Build();

@@ -1,5 +1,6 @@
-﻿@{
-    ViewData["Title"] = "Cadastro";
+﻿@model PrototipoSiteGestaoArtesBujujus.Models.CadastroViewModel
+@{
+    ViewData["Title"] = Model.ParaFuncionario ? "Novo funcionário" : "Cadastro";
 }
 
 @section Styles {
@@ -7,38 +8,51 @@
 }
 
 <div class="pagina-cadastro">
-    <h1 class="cad-titulo">Cadastro</h1>
+    <h1 class="cad-titulo">@ViewData["Title"]</h1>
 
     <div class="cad-cartao">
-        <form method="post">
+        @if (ViewBag.Erros is List<string> erros && erros.Count > 0)
+        {
+            <ul class="cad-erros">
+                @foreach (var erro in erros)
+                {
+                    <li>@erro</li>
+                }
+            </ul>
+        }
+
+        <form method="post" asp-controller="Cadastro" asp-action="@(Model.ParaFuncionario ? "NovoFuncionario" : "Index")">
             <div class="cad-linha">
                 <label for="nome">Nome completo:</label>
-                <input type="text" id="nome" name="Nome" class="cad-campo" />
+                <input type="text" id="nome" name="Nome" value="@Model.Nome" maxlength="100" class="cad-campo" />
             </div>
 
             <div class="cad-linha">
                 <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="Cpf" inputmode="numeric" maxlength="11" class="cad-campo" />
+                <input type="text" id="cpf" name="Cpf" value="@Model.Cpf" inputmode="numeric" maxlength="11" class="cad-campo" />
             </div>
 
-            <div class="cad-linha">
-                <label for="telefone">Telefone:</label>
-                <input type="tel" id="telefone" name="Telefone" inputmode="numeric" maxlength="11" class="cad-campo" />
-            </div>
+            @if (!Model.ParaFuncionario)
+            {
+                <div class="cad-linha">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="Telefone" value="@Model.Telefone" inputmode="numeric" maxlength="11" class="cad-campo" />
+                </div>
+            }
 
             <div class="cad-linha">
                 <label for="email">E-mail:</label>
-                <input type="email" id="email" name="Email" class="cad-campo" />
+                <input type="email" id="email" name="Email" value="@Model.Email" maxlength="50" class="cad-campo" />
             </div>
 
             <div class="cad-linha">
                 <label for="senha">Nova senha:</label>
-                <input type="password" id="senha" name="Senha" class="cad-campo" />
+                <input type="password" id="senha" name="Senha" autocomplete="new-password" class="cad-campo" />
             </div>
 
             <div class="cad-linha">
                 <label for="confirmacao">Confirmação de Senha:</label>
-                <input type="password" id="confirmacao" name="ConfirmacaoSenha" class="cad-campo" />
+                <input type="password" id="confirmacao" name="ConfirmacaoSenha" autocomplete="new-password" class="cad-campo" />
             </div>
 
             <button type="submit" class="cad-botao">Cadastrar</button>

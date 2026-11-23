@@ -1,0 +1,69 @@
+﻿@model PrototipoSiteGestaoArtesBujujus.Models.PainelViewModel
+@{
+    ViewData["Title"] = Model.Titulo;
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/painel.css" asp-append-version="true" />
+}
+
+<div class="pagina-painel">
+    <h1 class="painel-titulo">@Model.Titulo</h1>
+    <p class="painel-subtitulo">@Model.Subtitulo</p>
+
+    @if (TempData["Sucesso"] != null)
+    {
+        <p class="painel-sucesso">@TempData["Sucesso"]</p>
+    }
+
+    @if (Model.Erro != null)
+    {
+        <p class="painel-erro">@Model.Erro</p>
+    }
+
+    @if (Model.PodeCadastrarFuncionario)
+    {
+        <a class="painel-botao" asp-controller="Cadastro" asp-action="NovoFuncionario">Cadastrar funcionário</a>
+    }
+
+    @if (Model.Pedidos.Count > 0)
+    {
+        <div class="painel-tabela-caixa">
+            <table class="painel-tabela">
+                <thead>
+                    <tr>
+                        <th>Pedido</th>
+                        @if (Model.MostrarCliente)
+                        {
+                            <th>Cliente</th>
+                        }
+                        <th>Data</th>
+                        <th>Prazo</th>
+                        <th>Status</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var p in Model.Pedidos)
+                    {
+                        <tr>
+                            <td>#@p.Id</td>
+                            @if (Model.MostrarCliente)
+                            {
+                                <td>@p.Cliente</td>
+                            }
+                            <td>@p.Data</td>
+                            <td>@p.Prazo</td>
+                            <td><span class="selo @p.StatusClasse">@p.Status</span></td>
+                            <td>@p.Valor</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else if (Model.Erro == null)
+    {
+        <p class="painel-vazio">Nenhum pedido por aqui ainda.</p>
+    }
+</div>

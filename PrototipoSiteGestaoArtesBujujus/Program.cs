@@ -1,4 +1,5 @@
-using PrototipoSiteGestaoArtesBujujus.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 using Microsoft.EntityFrameworkCore;
 using PrototipoSiteGestaoArtesBujujus.Data;
 
@@ -10,7 +11,14 @@ var connectionString = builder.Configuration.GetConnectionString("Padrao");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, new MariaDbServerVersion(new Version(13, 0, 2))));
-builder.Services.AddSingleton<IUsuarioRepository, UsuarioRepositoryFake>();
+builder.Services
+    .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(opcoes =>
+    {
+        opcoes.LoginPath = "/Login";
+        opcoes.AccessDeniedPath = "/Painel";
+        opcoes.ExpireTimeSpan = TimeSpan.FromHours(2);
+    });
 
 var app = builder.Build();
 
@@ -24,6 +32,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

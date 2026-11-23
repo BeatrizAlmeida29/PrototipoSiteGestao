@@ -57,3 +57,14 @@
     font-size: 3rem;
     cursor: pointer;
 }
+
+
+.cad-erros {
+    margin: 0 0 1.5rem;
+    padding: 1rem 1.5rem 1rem 3rem;
+    border-radius: 0.5rem;
+    background-color: #FDECEA;
+    color: #B03A2E;
+    font-size: 1.75rem;
+}
+

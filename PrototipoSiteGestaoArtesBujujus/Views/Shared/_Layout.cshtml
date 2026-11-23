@@ -25,13 +25,28 @@
                 </svg>
             </button>
         </div>
+
         <div class="menu-login">
-            <button type="button" class="topo-link menu-login-botao">Login</button>
-            <div class="menu-login-lista">
-                <a href="/Login">Login</a>
-                <a href="/Cadastro">Cadastre-se</a>
-            </div>
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <button type="button" class="topo-link menu-login-botao">@(User.Identity.Name?.Split(' ')[0])</button>
+                <div class="menu-login-lista">
+                    <a href="/Painel">Meu painel</a>
+                    <form method="post" asp-controller="Login" asp-action="Sair">
+                        <button type="submit" class="menu-login-sair">Sair</button>
+                    </form>
+                </div>
+            }
+            else
+            {
+                <button type="button" class="topo-link menu-login-botao">Login</button>
+                <div class="menu-login-lista">
+                    <a href="/Login">Login</a>
+                    <a href="/Cadastro">Cadastre-se</a>
+                </div>
+            }
         </div>
+
         <img src="~/img/carrinho.svg" alt="Carrinho" class="carrinho" />
     </header>
 

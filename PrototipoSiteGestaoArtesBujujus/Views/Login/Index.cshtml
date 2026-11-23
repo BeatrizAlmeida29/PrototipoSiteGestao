@@ -9,6 +9,11 @@
 <div class="pagina-login">
     <h1 class="titulo">Entrar</h1>
 
+    @if (TempData["Sucesso"] != null)
+    {
+        <p class="sucesso">@TempData["Sucesso"]</p>
+    }
+
     @if (ViewBag.Erro != null)
     {
         <p class="erro">@ViewBag.Erro</p>

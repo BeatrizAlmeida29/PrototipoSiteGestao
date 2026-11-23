@@ -1,0 +1,111 @@
+﻿/* página que rola: a escala depende só da largura */
+html:has(.pagina-painel) {
+    font-size: clamp(8px, 100vw / 90, 20px);
+}
+
+.pagina-painel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 3.5rem 4rem;
+}
+
+.painel-titulo {
+    margin: 0;
+    font-size: 5rem;
+    font-weight: 700;
+}
+
+.painel-subtitulo {
+    margin: 0.5rem 0 1.5rem;
+    font-family: 'Kay Pho Du', serif;
+    font-size: 2.25rem;
+    color: #4B5563;
+    text-align: center;
+}
+
+.painel-sucesso,
+.painel-erro,
+.painel-vazio {
+    margin: 0 0 1rem;
+    font-size: 2.25rem;
+}
+
+.painel-sucesso {
+    color: #1E8449;
+}
+
+.painel-erro {
+    color: #C0392B;
+}
+
+.painel-botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22rem;
+    height: 4.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 2.25rem;
+    background-color: #1B98E0;
+    color: #FFFFFF;
+    font-size: 2.5rem;
+    text-decoration: none;
+}
+
+.painel-tabela-caixa {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 78rem;
+    padding: 1rem 1.5rem;
+    overflow-x: auto;
+    border-radius: 1.5rem;
+    background-color: #FFFFFF;
+    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+}
+
+.painel-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 2rem;
+}
+
+    .painel-tabela th {
+        padding: 0.75rem 1rem;
+        border-bottom: 2px solid #DBE8EF;
+        color: #4B5563;
+        text-align: left;
+    }
+
+    .painel-tabela td {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid #EEF2F5;
+    }
+
+.selo {
+    display: inline-block;
+    padding: 0.15rem 1rem;
+    border-radius: 1rem;
+    font-size: 1.75rem;
+}
+
+.status-aguardando-pagamento {
+    background-color: #FCEFC7;
+    color: #8A6D00;
+}
+
+.status-em-producao {
+    background-color: #D6ECFA;
+    color: #0B6AA2;
+}
+
+.status-pronto-para-retirada {
+    background-color: #D5F2E0;
+    color: #1E7B45;
+}
+
+.status-entregue {
+    background-color: #E4E7EE;
+    color: #4B5563;
+}

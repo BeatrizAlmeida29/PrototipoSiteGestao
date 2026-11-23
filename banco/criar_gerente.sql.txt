@@ -1,0 +1,7 @@
+USE item_personalizados;
+
+-- Troque a senha antes de executar. O perfil 3 é o Gerente.
+INSERT INTO usuario (perfil_usuario_id, email, senha, status_conta)
+VALUES (3, 'gerente@email.com', SHA2('TROQUE_ESTA_SENHA', 256), TRUE);
+INSERT INTO funcionario (usuario_id, nome, cpf)
+VALUES (LAST_INSERT_ID(), 'Gerente', '00000000001');
